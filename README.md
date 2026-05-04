@@ -12,6 +12,14 @@ Focus: alpha generation, algorithm design and execution modeling.
   - [Round 3: Options Scalping](#round-3-options-scalping)
   - [Round 4: Location Arbitrage](#round-4-location-arbitrage)
   - [Round 5: Trader IDs](#round-5-trader-ids)
+ 
+
+
+## Algorithmic Challenge
+
+### Round 1: Market Making
+
+### Round 2: ETF Statistical Arbitrage
 
 - Final result: 4th / 22,000+ teams (Round 4), 23th Round 3 algo 25th overall, 27th algo Round 2
 - Core approach:
