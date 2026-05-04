@@ -1,7 +1,7 @@
 # IMC Prosperity 4 – Alpha Search Team
 
 Summary of our systematic trading approach across Rounds 1–5.
-Focus: alpha generation, execution modeling, and iteration.
+Focus: alpha generation, algorithm design and execution modeling.
 
 
 ## Overview
@@ -27,8 +27,8 @@ Focus: alpha generation, execution modeling, and iteration.
 
 ### Strategy Types
 - Market making
-- Statistical arbitrage
-- Mean reversion
+- Mean reversion around an underlying trend 
+- Statistical arbitrage and pairs trading
 - Options-based strategies
 
 ### Execution Modeling
