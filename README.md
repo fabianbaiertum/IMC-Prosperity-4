@@ -96,4 +96,4 @@ we did this ...
 
 ### Round 4: Options Portfolio Optimization
 
-### Round 5: New-based Portfolio
+### Round 5: News-based Portfolio
