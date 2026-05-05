@@ -9,7 +9,6 @@ Focus: alpha generation, algorithm design and execution modeling.
 - Core approach:
   - Systematic signal research across asset classes
   - Execution-aware strategy design (fill probability modeling)
-  - Iterative refinement across rounds
 
 - Key components:
   - Alpha signals (microstructure, statistical, cross-asset)
