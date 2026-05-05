@@ -17,7 +17,10 @@ Focus: alpha generation, algorithm design and execution modeling.
 
 ## Algorithmic Challenge
 
-### Round 1: Market Making
+### Round 1 and 2
+
+
+
 
 ### Round 2: ETF Statistical Arbitrage
 
