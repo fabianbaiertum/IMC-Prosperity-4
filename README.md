@@ -49,12 +49,6 @@ Given this and the fact that Osmium was mean reverting we formulated the followi
 ![Osmium](pictures/osmium.png)
 
 
-What we missed for both assets was that if one side isn't quoted, we could quote extremely wide and still get filled.
-
-
-
-
-
 
 
 
@@ -76,6 +70,7 @@ Lastly, as the spread was increasing and the last time steps mid price is used t
 *Figure: Pepper root spread over time*
 ![Pepper Root Spread](pictures/pepper_root_spread.png)
 
+What we missed for both assets was that if one side isn't quoted, we could quote extremely wide and still get filled.
 Also, we expected a massive regime change due to the simplicity of this task, so we had a generalisation of this strategy to any slope of the trend, also negative implemented. And the regime change prediction was correct, just in another way, as round 3 was completely different from the years before, and the two assets for the first two rounds weren't traded anymore and the PnL was reset to 0.
 
 
