@@ -8,16 +8,22 @@ Focus: alpha generation, algorithm design and execution modeling.
 
 - [Algorithmic Challenge](#algorithmic-challenge)
   - [Round 1 and 2](#round-1-and-2)
-  - [Round 2: ETF Statistical Arbitrage](#round-2-etf-statistical-arbitrage)
-  - [Round 3: Options Scalping](#round-3-options-scalping)
-  - [Round 4: Location Arbitrage](#round-4-location-arbitrage)
-  - [Round 5: Trader IDs](#round-5-trader-ids)
+  - [Round 3 and 4](#round-3-and-4-Options-Trading)
+  - [Round 5](#round-5-50-assets-tradable)
+
  
 
 
 ## Algorithmic Challenge
 
 ### Round 1 and 2
+#### ASH COATED OSMIUM
+
+Maybe Giovanni/Caleb do this one.
+
+
+
+
 #### INTARIAN PEPPER ROOT
 Pepper root had a clear pattern with an underlying upward trend and mean reversion around this trend. So the baseline approach for this asset was to just buy as aggressively as possible at the start and hold until the end. One major feature was also that the spread was increasing over time; thus, using an if statement, if the mid price is above the fair value and then selling and buying it back immediately, might not be the best approach. 
 
@@ -29,6 +35,25 @@ For the first approach, we had the following logic: If the currently quoted best
 Lastly, as the spread was increasing and the last time steps mid price is used to settle the position we are holding, we would lose money at the end of the trading period. To reduce this loss, we start posting orders below the best ask to capture any incoming order flow. We start with this process close to the end of the period. In the worst case, if no bot sends out a buy order, we get the same mid price settlement as without using this strategy. 
 
 Also, we expected a massive regime change due to the simplicity of this task, so we had a generalisation of this strategy to any slope of the trend, also negative implemented. And the regime change prediction was correct, just in another way, as round 3 was completely different from the years before, and the two assets for the first two rounds weren't traded anymore.
+
+
+
+
+
+
+
+### Round 3 and 4 Options Trading
+#### HYDROGEL PACK
+
+
+#### VELVETFRUIT EXTRACT
+
+
+
+
+### Round 5 50 assets trabable
+
+
 
 
 
