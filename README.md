@@ -8,8 +8,8 @@ Focus: alpha generation, algorithm design and execution modeling.
 
 - [Algorithmic Challenge](#algorithmic-challenge)
   - [Round 1 and 2](#round-1-and-2)
-  - [Round 3 and 4](#round-3-and-4-Options-Trading)
-  - [Round 5](#round-5-50-assets-tradable)
+  - [Round 3 and 4 Options Trading](#round-3-and-4-Options-Trading)
+  - [Round 5 50 assets tradable](#round-5-50-assets-tradable)
 
  
 
