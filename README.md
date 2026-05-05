@@ -7,7 +7,7 @@ Focus: alpha generation, algorithm design and execution modeling.
 ## Overview
 
 - [Algorithmic Challenge](#algorithmic-challenge)
-  - [Round 1: Market Making](#round-1-market-making)
+  - [Round 1 and 2](#round-1-market-making)
   - [Round 2: ETF Statistical Arbitrage](#round-2-etf-statistical-arbitrage)
   - [Round 3: Options Scalping](#round-3-options-scalping)
   - [Round 4: Location Arbitrage](#round-4-location-arbitrage)
