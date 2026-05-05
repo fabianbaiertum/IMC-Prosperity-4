@@ -1,5 +1,7 @@
 # IMC Prosperity 4 – Alpha Search Team
 
+## About us: with linkedin maybe? 
+
 Summary of our systematic trading approach across Rounds 1–5.
 Focus: alpha generation, algorithm design and execution modeling.
 
@@ -22,7 +24,8 @@ Focus: alpha generation, algorithm design and execution modeling.
   - [Round 3 and 4: Options Trading](#round-3-and-4-Options-Trading)
   - [Round 5: 50 assets tradable](#round-5-50-assets-tradable)
 
- 
+ - [Manual Challenge](#manual-challenge)
+   - [Round 1: Walrasian Auction](#round-1-walrasian-auction)
 
 
 ## Algorithmic Challenge
@@ -61,16 +64,26 @@ Also, we expected a massive regime change due to the simplicity of this task, so
 
 
 #### Options on VFE
-For the options pricing, it was clear from the Wiki that we should use standard Black-Scholes pricing. The first thing we did
+There were ten options on VFE with strikes 4000, 4500, 5000, 5100, 5200, 5300, 5400, 5500, 6000, 6500
+For the options pricing, it was clear from the Wiki that we should use standard Black-Scholes pricing. The first thing we did was to get a volatility surface and see if there were any anomalies for the Greeks. After that, we checked for any convexity (butterfly spread arbitrage) violations, where there weren't any in the data. The next step was to check if there is any lead-lag relationship to find, given the current option prices and the approximate changes they should follow to the next time step. Again, nothing to be found here. As the underlying VFE was mean reverting, we couldn't trust any of the mean reverting options combinations
 
 
 
 
 #### Informed/Uninformed Traders
 
+We posted bids at 0 and asks at 1 for the 6000 and 6500 strikes, after seeing that Mark 22 sells them at 0.
+
 ### Round 5: 50 assets trabable
 we did this ...
 
+
+
+
+
+ ## Manual Challenge
+
+ ### Round 1: Walrasian Auction
  
 
 ## Core Framework
