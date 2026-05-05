@@ -42,7 +42,7 @@ Also, we expected a massive regime change due to the simplicity of this task, so
 
 
 
-### Round 3 and 4 Options Trading
+### Round 3 and 4: Options Trading
 #### HYDROGEL PACK
 
 
@@ -51,7 +51,7 @@ Also, we expected a massive regime change due to the simplicity of this task, so
 
 
 
-### Round 5 50 assets trabable
+### Round 5: 50 assets trabable
 
 
 
