@@ -26,7 +26,10 @@ Focus: alpha generation, algorithm design and execution modeling.
 
  - [Manual Challenge](#manual-challenge)
    - [Round 1: Walrasian Auction](#round-1-walrasian-auction)
-   - [Round 2: Choosing bids](#round-2-choosing-bids)
+   - [Round 2: Speed](#round-2-speed)
+   - [Round 3: Choosing bids](#round-3-choosing-bids)
+   - [Round 4: Options Portfolio Optimization](#round-4-options-portfolio-optimization)
+   - [Round 5: News-based Portfolio](#round-5-news-based-portfolio)
 
 
 ## Algorithmic Challenge
@@ -87,24 +90,10 @@ we did this ...
  ### Round 1: Walrasian Auction
  There were two auctions, which you can participate in, both with price-time priority, where you were the last person to submit an order before the clearing price was decided to maximize traded volume. The solution was straightforward, if you know how the Walrasian auction works (it wasn't mentioned in the challenge, of course). We knew that after the clearing price is decided, we would be able to settle the position at a specified price, 30 for the first auction and 20 for the second auction. There were two approaches we followed: just looking at the orders of the others in the market and brute-forcing the answer. We did both to double-check our result, and they agreed. To brute-force it, you just need to calculate the clearing price, given the intended trade you will do (with both specified price and volume, over which you loop) and just calculate the PnL of it. Then you take the maximum of those outputs as your intended trade.
 
- ### Round 2: Choosing bids
+### Round 2: Speed
 
-## Core Framework
+### Round 3: Choosing bids
 
-### Signal Research
-- Cross-sectional and time-series signals
-- Feature engineering: imbalance, microprice, spread dynamics
+### Round 4: Options Portfolio Optimization
 
-### Strategy Types
-- Market making
-- Mean reversion around an underlying trend 
-- Statistical arbitrage and pairs trading
-- Options-based strategies
-
-### Execution Modeling
-- Fill probability estimation
-- Queue positioning and priority
-- Trade-off: aggressiveness vs adverse selection
-
-
-
+### Round 5: New-based Portfolio
