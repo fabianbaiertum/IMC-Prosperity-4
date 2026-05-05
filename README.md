@@ -37,8 +37,17 @@ Before the competition officially started, we prepared by building a backtester 
 
 ### Round 1 and 2
 #### ASH COATED OSMIUM
+For Osmium, the strategy was completely different from that of Pepper root. We first started our search for an appropriate fair value estimate. For this, we took a similar approach at the Frankfurt Hedgehogs, defining a wall mid, but with volumes as a filter for it. We would forward fill this if a value is missing on either side. We found a pattern of volumes quoted in the market, which was symmetric for bids and asks.
 
-Maybe Giovanni/Caleb do this one.
+*Figure: Osmium bots over time*
+![Osmium Bots](pictures/osmium_bots.png)
+
+
+What we missed was that if one side isn't quoted, we could quote extremely wide and still get filled.
+
+
+
+
 
 
 
