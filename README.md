@@ -43,7 +43,13 @@ For Osmium, the strategy was completely different from that of Pepper root. We f
 ![Osmium Bots](pictures/osmium_bots.png)
 
 
-What we missed was that if one side isn't quoted, we could quote extremely wide and still get filled.
+Given this and the fact that Osmium was mean reverting we formulated the following strategy. If the ask price is smaller than the wall mid, we take it, analogously for the bid side. Additionally, we do market making with two different modes, depending, if the current quotes in the market are made by market makers or not. We classify the quote into an MM quote if the distance of it to the wall mid is larger than 5. In this case, we post at the best bid + 1 or best ask -1. If the quote isn't by an MM, then we quote around the wall mid shifted by an inventory skew and a half spread of 4. 
+
+*Figure: Osmium over time*
+![Osmium](pictures/osmium.png)
+
+
+What we missed for both assets was that if one side isn't quoted, we could quote extremely wide and still get filled.
 
 
 
