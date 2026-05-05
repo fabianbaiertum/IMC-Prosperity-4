@@ -54,25 +54,6 @@ Focus: alpha generation, algorithm design and execution modeling.
 
 ## Round 1
 
-### Objective
-- Analyzing the data sets for signals
-- Building strategies for the two assets ASH_COATED_OSMIUM and INTARIAN_PEPPER_ROOT
-- 
-
-### Signals / Alpha
-- Key signals introduced or refined
-- Why they worked (intuition, not just description)
-
-### Strategy
-- Market making / directional / arb
-- Any structural changes
-
-### Execution
-- Fill probability modeling / improvements
-- Order placement logic
-
-### What Worked
-- Main drivers of PnL
 
 ### What Didn’t
 - Failed ideas / wrong assumptions
