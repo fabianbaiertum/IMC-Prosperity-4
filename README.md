@@ -102,3 +102,14 @@ For every volume, which wasn't used by another strategy, we used market making, 
 ### Round 4: Options Portfolio Optimization
 
 ### Round 5: News-based Portfolio
+
+
+## Code availability
+
+The full codebase includes:
+
+- Systematic signal research
+- Strategy logic (pricing, risk, signal integration)
+- Execution and queue-priority handling
+
+> **If you are a recruiter from a quantitative trading firm**, feel free to email me for access to the full implementation and additional technical details.
