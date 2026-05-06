@@ -104,6 +104,20 @@ We posted bids at 0 and asks at 1 for the 6000 and 6500 strikes, after seeing th
 ### Round 5: 50 assets trabable
 In round 5, due to the enormous amount of tradable assets, we needed to rethink our approach. We first tried to find pairs which would cointegrate and classify the assets into common behaviour. For the former, we found that almost all cointegrations don't hold OOS.
 
+
+
+
+
+#### Purification Pebbles: XS - XL
+For Pebbles, there was a strict relationship that all components added had the value 50k. We used this to improve the fair value for XL to do market making around 50k - midprice of the components. For XS and S there was a relationship similar to Pepper root, but now downwards trending: XS+S = 20k - slope times time. We used the same strategy as for Pepper root here, just with the combination of XS and S. For M and L, we used a mean reversion approach.
+
+#### Organic Microchips
+For Microchips, we found a lead-lag relationship between Circle and the other assets, with Circle leading.
+
+*Figure: Lead-lag relationship of microchips*
+![Microchips](pictures/microchips.png)
+
+
 #### Market Making
 For every volume, which wasn't used by another strategy, we used market making, if the asset allowed for it. This only uses up to size 2 per asset (tested the optimal ratio). For the market making algorithm itself, we needed to select an approach which has minimal parameters across all of the traded assets. For this, we had a percentage-based approach to make assets comparable and decide on their spread given some simple heuristics, which we can tune. Additionally, due to the fact that some had smaller spreads, we needed some logic for the edge cases, e.g. if the quoted spread is 3 or smaller.
 
