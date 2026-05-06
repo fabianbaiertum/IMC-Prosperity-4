@@ -81,7 +81,11 @@ Also, we expected a massive regime change due to the simplicity of this task, so
 ### Round 3 and 4: Options Trading
 For rounds 3 and 4, the assets of previous rounds weren't available to trade anymore. We first looked into potential relationships between Hydrogel and Velvetfruit, but didn't find any besides them both being mean reverting.
 
+
 #### HYDROGEL PACK
+
+*Figure: Hydrogel and VFE over time*
+![Hydrogel VFE](pictures/hydrogel_vfe.png)
 
 
 #### VELVETFRUIT EXTRACT (VFE)
