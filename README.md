@@ -118,6 +118,9 @@ For Microchips, we found a lead-lag relationship between Circle and the other as
 ![Microchips](pictures/microchips.png)
 
 
+#### UV-Visors
+UV had one of the cointegrations, which holds strongly. It had the weights and assets: 3 magenta, 2 amber and 1 red, with a constant mean of 60k. We traded the deviations from this mean with the appropriate weights and scaled them up to the position limit of 10. As enough trades were occurring with this strategy, we used stochastic rounding to maximize the PnL of it. 
+
 #### Market Making
 For every volume, which wasn't used by another strategy, we used market making, if the asset allowed for it. This only uses up to size 2 per asset (tested the optimal ratio). For the market making algorithm itself, we needed to select an approach which has minimal parameters across all of the traded assets. For this, we had a percentage-based approach to make assets comparable and decide on their spread given some simple heuristics, which we can tune. Additionally, due to the fact that some had smaller spreads, we needed some logic for the edge cases, e.g. if the quoted spread is 3 or smaller.
 
