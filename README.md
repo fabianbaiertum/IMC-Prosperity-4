@@ -109,10 +109,10 @@ In round 5, due to the enormous amount of tradable assets, we needed to rethink 
 
 
 #### Purification Pebbles: XS - XL
-For Pebbles, there was a strict relationship that all components added had the value 50k. We used this to improve the fair value for XL to do market making around 50k - midprice of the components. For XS and S there was a relationship similar to Pepper root, but now downwards trending: XS+S = 20k - slope times time. We used the same strategy as for Pepper root here, just with the combination of XS and S. For M and L, we used a mean reversion approach.
+For Pebbles, there was a strict relationship that all components added had the value 50k. We used this to improve the fair value for XL to do market making around 50k - midprice of the components. For XS and S, there was a relationship similar to Pepper root, but now downwards trending: XS+S = 20k - slope times time. We used the same strategy as for Pepper root here, just with the combination of XS and S. For M and L, we used a mean reversion approach.
 
 #### Organic Microchips
-For Microchips, we found a lead-lag relationship between Circle and the other assets, with Circle leading.
+For Microchips, we found a lead-lag relationship between Circle and the other assets, with Circle leading (see the figure below). Knowing such a relationship exists, we only traded the 4 other assets of microchips, excluding Circle. The strategy was simply that if Circle made a large enough directional movement over a specified period, we would trade it in all of the other assets with respect to the lag. For risk management, as it wasn't a perfect correlation, we would exit if the price change didn't behave as expected. Also, we would continue to stay in this position as long as Circle is moving in this direction, if our prediction is correct.
 
 *Figure: Lead-lag relationship of microchips*
 ![Microchips](pictures/microchips.png)
