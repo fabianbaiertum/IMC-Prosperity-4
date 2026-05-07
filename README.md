@@ -1,7 +1,5 @@
 # IMC Prosperity 4 – Alpha Search Team
 
-## About Us
-
 Our approach combined systematic quantitative research with execution-aware trading infrastructure, emphasizing robust signal discovery, market microstructure analysis, and inventory-aware optimization across multiple rounds of competition.
 
 ## Core Focus Areas
