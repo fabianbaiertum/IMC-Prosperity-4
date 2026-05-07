@@ -16,6 +16,28 @@ Focus: alpha generation, algorithm design and execution modeling.
   - Execution optimization
   - Risk and inventory management
 
+
+
+# IMC Prosperity 4 – Alpha Search Team
+
+We are a systematic trading team focused on alpha generation, execution modeling, and algorithmic strategy design across the IMC Prosperity 4 challenge.
+
+Our approach combined quantitative research with execution-aware trading infrastructure, emphasizing robust signal discovery, market microstructure analysis, and inventory-aware optimization across multiple rounds of competition.
+
+## Core Focus Areas
+- Alpha signal research (microstructure, statistical, and cross-asset)
+- Systematic strategy development
+- Execution optimization and fill-probability modeling
+- Risk and inventory management
+
+## Results
+- **4th place globally** out of 22,000+ teams in Round 4
+- **23rd place** in the Round 3 algorithmic competition
+- **27th place** in the Round 2 algorithmic competition
+
+Through iterative research, simulation, and execution optimization, we developed scalable systematic trading strategies designed to perform under highly competitive market conditions.
+
+
 ## Overview
 
 - [Algorithmic Challenge](#algorithmic-challenge)
