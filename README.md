@@ -137,7 +137,7 @@ The final basket-style signals we used were:
 - Organic Microchips: RECTANGLE - 2 * OVAL + 3 * TRIANGLE, used mainly as a signal to trade TRIANGLE rather than as a fully hedged basket.
 - Protein Snack Packs: VANILLA - CHOCOLATE, and PISTACHIO + STRAWBERRY - RASPBERRY, traded more as short-horizon/EMA mean reversion than as perfectly clean long-run cointegration.
 
-We explicitly rejected many statistically tempting baskets in Oxygen, Galaxy Sounds, and Construction Panels because they did not survive the held-out tests well enough or did not have convincing after-cost behaviour. Some products from those categories were still traded directionally or market-made, but not because of a strong cointegration claim.
+We explicitly rejected many statistically tempting baskets in Oxygen, Galaxy Sounds, and Construction Panels because they did not survive the held-out tests well enough or did not have convincing after-cost behaviour. Some products from those categories were still traded directionally or market-made, but not because of a strong cointegration claim. In particular, OXYGEN_SHAKE_GARLIC, GALAXY_SOUNDS_BLACK_HOLES, and PANEL_2X4 showed positive long-only PnL on every historical day we had. The fact that these came from categories where basket mean reversion failed was also useful: it suggested that the edge in those categories was more likely an outright drift/trend effect in a specific product than a stable intra-category relative-value relationship.
 
 
 #### Purification Pebbles: XS - XL
