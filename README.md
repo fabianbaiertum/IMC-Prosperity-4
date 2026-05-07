@@ -1,5 +1,7 @@
 # IMC Prosperity 4 – Alpha Search Team
 
+## About Us
+
 Our approach combined systematic quantitative research with execution-aware trading infrastructure, emphasizing robust signal discovery, market microstructure analysis, and inventory-aware optimization across multiple rounds of competition.
 
 ## Core Focus Areas
@@ -92,6 +94,12 @@ We tried several market making algorithms and different mean reversion approache
 #### Options on VFE
 There were ten vanilla call options on VFE with strikes 4000, 4500, 5000, 5100, 5200, 5300, 5400, 5500, 6000, 6500.
 For the options pricing, it was clear from the Wiki that we should use standard Black-Scholes pricing. The first thing we did was to get a volatility surface and see if there were any anomalies for the Greeks. After that, we checked for any convexity (butterfly spread arbitrage) violations, where there weren't any in the data. The next step was to check if there is any lead-lag relationship to find, given the current option prices and the approximate changes they should follow to the next time step. Again, nothing to be found here. As the underlying VFE was mean reverting, we couldn't trust any of the mean reverting options combinations. Through time, the volatility surface wasn't stable, so we couldn't trade that either. As the price of the underlying VFE was around 5200-5300, 6000 and 6500 strikes were far OTM and traded between 0 and 1. For round 3, we didn't trade those at all and only included them in round 4 after seeing which bots took what kind of trades. For the other options, they all followed the underlying's direction perfectly;  thus, just trading the underlying and doing the same trades with each of the options seemed to be the best option (or choice, if you don't like the word play).
+We also briefly tried an IV scalping variant on the vouchers themselves. The setup used a fitted smile, Black-Scholes fair values, and then traded the residual between market mid and smile-implied fair value. We tested both pooled z-score triggers across vouchers and per-voucher absolute residual thresholds around a rolling mean, especially for the strikes around the money such as 5100-5500. The idea was that relative value dislocations might mean revert even if outright price direction was noisy. In practice, the edge was too inconsistent once spread costs, fill uncertainty, and unstable surface dynamics were taken into account, so this remained an experiment rather than part of the final production strategy.
+
+One reason we did not push further on pure smile trading was that even the cleaned fit came at a fairly high cost in sample size. We could get a visually reasonable parabola only after excluding low-extrinsic and low-vega observations, but that removed more than half of the raw points, which made us uncomfortable treating the resulting surface as a robust production signal rather than a diagnostic tool.
+
+*Figure: Filtered Round 3 voucher smile fit — excluded points are grey, retained points blue, fitted parabola in black. The fit looks cleaner after filtering, but only about 45.6% of observations survive the quality screen.*
+![Filtered Round 3 voucher smile fit](pictures/round3_filtered_smile_fit.png)
 
 
 
@@ -101,11 +109,35 @@ For round 4, we were given the data set with added bot names for each trade. We 
 We tried to analyze which bots make positive EV predictions over several different time frames. We split that into two parts, one observing the quoted side, and classifying if they are informed or not and for the aggressive sides trades. Only Mark 67 seemed to have a clear edge here, but the edge was too insignificant to outperform our round 3 algorithm due to high transaction costs. Some of the bots were also trading only at a specific price (one was always selling at the price of 7). We also tried to classify into informed/uninformed based on the volumes of the Mark's. 
 We posted bids at 0 and asks at 1 for the 6000 and 6500 strikes, after seeing that Mark 22 sells them at 0. 
 
-### Round 5: 50 assets trabable
-In round 5, due to the enormous amount of tradable assets, we needed to rethink our approach. We first tried to find pairs which would cointegrate and classify the assets into common behaviour. For the former, we found that almost all cointegrations don't hold OOS.
+### Round 5: 50 assets tradable
+In round 5, due to the enormous amount of tradable assets, we needed to rethink our approach. We first tried to find pairs which would cointegrate and classify the assets into common behaviour. For the former, we found that almost all apparent cointegrations did not hold out of sample.
 
+The main lesson was that basket discovery is a multiple-testing problem. If thousands of candidate baskets are tested, a raw p-value below 0.05 is not strong evidence by itself. In fact, accepting a basket when any one of three folds has p < 0.05 gives a false-positive probability of about 1 - 0.95^3 = 14.3% under a no-edge null. At the scale of our search, this produces many visually plausible but spurious baskets.
 
+To reduce this, we treated the statistical tests as a screening layer, not as the final decision rule. The clean chronological validation was:
 
+- train on day 2, test on day 3
+- train on days 2 and 3, test on day 4
+
+We also used leave-one-day-out folds such as train on days 2 and 4, test on day 3, and train on days 3 and 4, test on day 2. Those folds are not a true live trading simulation, because they use future data relative to the test day. We used them only as stability diagnostics: if a basket only worked in one split and broke in the others, it was more likely to be a day-specific accident.
+
+Another way we controlled the search was by moving from arbitrary continuous hedge ratios to a small integer lattice and by searching mostly within product categories. A free OLS basket can always find fragile decimal coefficients that make the in-sample residual look stationary, especially when many unrelated products are tested. Those coefficients are also harder to interpret, harder to size under position limits, and more likely to drift between days. Restricting the search to small round-number weights, usually in a range such as -3 to 3, reduced the number of candidate baskets. Restricting the search to products from the same category added a structural prior: it is more plausible that variants of the same product family share a pricing relationship than that an arbitrary mix of unrelated assets does. Neither restriction eliminates overfitting, but together they reduce the hypothesis space and make the surviving baskets more interpretable: if a relationship only worked with a very specific decimal coefficient or a cross-category mixture with no story, we treated it as less trustworthy than one that survived with simple ratios like 3:2:1 or 1:3:3:1 inside a category.
+
+For each candidate basket, we looked at the train ADF p-value, the held-out test ADF p-value, a same-mean ADF test around the train-fitted mean, the shift in test mean measured in train sigmas, the ratio of test sigma to train sigma, half-life, crossing rate, and after-cost backtest PnL. We also inspected the spread plots. The plots helped catch problems that a p-value can hide, such as slow trending, one large reversal driving the result, a mean shift between days, or a spread that is statistically stationary but too slow or too expensive to trade. However, those plots were diagnostic rather than independent proof; once a plot is selected after a large search, it has the same selection-bias issue as the p-value.
+
+The Bonferroni correction makes the same point. If we correct only across the final shortlist of seven baskets, the threshold is 0.05 / 7 = 0.0071, and UV, Microchip, Snackpack B, Robot, and Translator pass on their descriptive all-day ADF p-values. Sleep and Snackpack A do not. But this is too generous because the shortlist was chosen after a much larger search. Correcting across the true search space would require p-values on the order of 10^-6 or smaller, and essentially none of the discovered baskets should be described as Bonferroni-clean. We therefore used p-values as a sanity check, and relied more on structural simplicity, cross-day PnL consistency, and execution feasibility.
+
+The final basket-style signals we used were:
+
+- Purification Pebbles: hard structural relationships, especially XS + S following a downward time trend, M + L around a fixed level, and XL priced from the rest of the basket.
+- UV-Visors: 3 * MAGENTA + 2 * AMBER + RED around 60k. This was the cleanest integer basket.
+- Domestic Robots: MOPPING + 3 * VACUUMING + 3 * DISHES + IRONING.
+- Sleep Pods: LAMB_WOOL + 2 * SUEDE - 3 * POLYESTER + 2 * COTTON. This was weaker, so we treated it more cautiously.
+- Instant Translators: SPACE_GRAY + 2 * ASTRO_BLACK - 3 * ECLIPSE_CHARCOAL + GRAPHITE_MIST + 3 * VOID_BLUE. This was also weaker statistically, but had useful after-cost behaviour.
+- Organic Microchips: RECTANGLE - 2 * OVAL + 3 * TRIANGLE, used mainly as a signal to trade TRIANGLE rather than as a fully hedged basket.
+- Protein Snack Packs: VANILLA - CHOCOLATE, and PISTACHIO + STRAWBERRY - RASPBERRY, traded more as short-horizon/EMA mean reversion than as perfectly clean long-run cointegration.
+
+We explicitly rejected many statistically tempting baskets in Oxygen, Galaxy Sounds, and Construction Panels because they did not survive the held-out tests well enough or did not have convincing after-cost behaviour. Some products from those categories were still traded directionally or market-made, but not because of a strong cointegration claim.
 
 
 #### Purification Pebbles: XS - XL
@@ -119,7 +151,7 @@ For Microchips, we found a lead-lag relationship between Circle and the other as
 
 
 #### UV-Visors
-UV had one of the cointegrations, which holds strongly. It had the weights and assets: 3 magenta, 2 amber and 1 red, with a constant mean of 60k. We traded the deviations from this mean with the appropriate weights and scaled them up to the position limit of 10. As enough trades were occurring with this strategy, we used stochastic rounding to maximize the PnL of it. 
+UV had one of the cointegrations, which held strongly. It had the weights and assets: 3 magenta, 2 amber and 1 red, with a constant mean of around 60k. We traded the deviations from this mean with the appropriate weights and scaled them up to the position limit of 10. In the final trader this was implemented with deterministic integer targets/rounding, not stochastic rounding.
 
 #### Market Making
 For every volume, which wasn't used by another strategy, we used market making, if the asset allowed for it. This only uses up to size 2 per asset (tested the optimal ratio). For the market making algorithm itself, we needed to select an approach which has minimal parameters across all of the traded assets. For this, we had a percentage-based approach to make assets comparable and decide on their spread given some simple heuristics, which we can tune. Additionally, due to the fact that some had smaller spreads, we needed some logic for the edge cases, e.g. if the quoted spread is 3 or smaller.
