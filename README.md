@@ -1,10 +1,11 @@
 # IMC Prosperity 4 – Alpha Search Team
 
 ## Team Members
-- [Fabian Baier](https://linkedin.com/in/fabian-baier-tum/)
-- [Name 2](https://linkedin.com/in/your-linkedin)
-- [Name 3](https://linkedin.com/in/your-linkedin)
-- [Name 4](https://linkedin.com/in/your-linkedin)
+- [Fabian](https://linkedin.com/in/fabian-baier-tum/)
+- [Giovanni](https://linkedin.com/in/your-linkedin)
+- [Caleb](https://linkedin.com/in/your-linkedin)
+- [Laurentiu](https://linkedin.com/in/your-linkedin)
+- [Thomas](https://linkedin.com/in/your-linkedin)
 
 Our approach combined systematic quantitative research with execution-aware trading infrastructure, emphasizing robust signal discovery, market microstructure analysis, and inventory-aware optimization across multiple rounds of competition.
 
