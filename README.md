@@ -1,26 +1,6 @@
 # IMC Prosperity 4 – Alpha Search Team
 
-## About us: with linkedin maybe? 
-
-Summary of our systematic trading approach across Rounds 1–5.
-Focus: alpha generation, algorithm design and execution modeling.
-
-- Final result: 4th / 22,000+ teams (Round 4), 23th Round 3 algo 25th overall, 27th algo Round 2
-- Core approach:
-  - Systematic signal research across asset classes
-  - Execution-aware strategy design (fill probability modeling)
-
-- Key components:
-  - Alpha signals (microstructure, statistical, cross-asset)
-  - Strategy development
-  - Execution optimization
-  - Risk and inventory management
-
-
-
-# IMC Prosperity 4 – Alpha Search Team
-
-We are a systematic trading team focused on alpha generation, execution modeling, and algorithmic strategy design across the IMC Prosperity 4 challenge.
+## About Us
 
 Our approach combined quantitative research with execution-aware trading infrastructure, emphasizing robust signal discovery, market microstructure analysis, and inventory-aware optimization across multiple rounds of competition.
 
