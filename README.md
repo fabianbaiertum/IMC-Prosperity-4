@@ -2,10 +2,10 @@
 
 ## Team Members
 - [Fabian](https://linkedin.com/in/fabian-baier-tum/)
-- [Giovanni](https://linkedin.com/in/your-linkedin)
-- [Caleb](https://linkedin.com/in/your-linkedin)
-- [Laurentiu](https://linkedin.com/in/your-linkedin)
-- [Thomas](https://linkedin.com/in/your-linkedin)
+- [Giovanni](https://linkedin.com/in/giovanni-de-valdivia-bade-b63b93146/)
+- [Caleb](https://linkedin.com/in/calebjl/)
+- [Laurentiu](https://linkedin.com/in/lawrence-vasilescu/)
+- [Tommy](https://linkedin.com/in/tommy-wong-998b68194/)
 
 Our approach combined systematic quantitative research with execution-aware trading infrastructure, emphasizing robust signal discovery, market microstructure analysis, and inventory-aware optimization across multiple rounds of competition.
 
