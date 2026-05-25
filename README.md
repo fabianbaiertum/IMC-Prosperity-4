@@ -211,9 +211,11 @@ $$
 \mathcal{R}=\{670,675,680,\ldots,920\}
 $$
 
-be the set of reserve-price levels, and let $N=300$ be the number of counterparties at each reserve level. For a bid $b$, the number of counterparties with reserve price below the bid is $
-Q(b)=N\sum_{r\in\mathcal{R}}I(r<b).
-$
+be the set of reserve-price levels, and let $N=300$ be the number of counterparties at each reserve level. For a bid $b$, the number of counterparties with reserve price below the bid is 
+
+$$
+Q(b)=N\sum_{r\in\mathcal{R}}I(r<b)
+$$
 
 Here $I(r<b)$ is an indicator that equals 1 when reserve level $r$ is below bid $b$, and 0 otherwise.
 
