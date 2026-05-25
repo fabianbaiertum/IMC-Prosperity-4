@@ -195,10 +195,10 @@ $$
 b_1 \leq b_2.
 $$
 
-The key complication was that the second bid was compared against the average second bid of all players, denoted $\bar b_2$. If our second bid was at or above this average, the second-bid trade earned its full margin. If it was below the average, the second-bid profit was multiplied by the penalty
+The key complication was that the second bid was compared against the average second bid of all players, denoted $\bar{b}_2$. If our second bid was at or above this average, the second-bid trade earned its full margin. If it was below the average, the second-bid profit was multiplied by the penalty
 
 $$
-\left(\frac{920 - \bar b_2}{920 - b_2}\right)^3.
+\left(\frac{920 - \bar{b}_2}{920 - b_2}\right)^3.
 $$
 
 This made the problem partly game-theoretic: the value of our second bid depended not only on the reserve distribution, but also on what other players were expected to submit.
@@ -214,7 +214,7 @@ $$
 be the set of reserve-price levels, and let $N=300$ be the number of counterparties at each reserve level. For a bid $b$, the number of counterparties with reserve price below the bid is
 
 $$
-Q(b)=N\cdot \#\{r\in\mathcal{R}:r<b\}.
+Q(b)=N\cdot \left|\{r\in\mathcal{R}:r<b\}\right|.
 $$
 
 For two bids, the first bid fills
@@ -229,20 +229,20 @@ $$
 Q_2(b_1,b_2)=Q(b_2)-Q(b_1).
 $$
 
-The per-unit margins are $920-b_1$ and $920-b_2$. Therefore, for a given assumed average second bid $\bar b_2$, the modeled PnL was
+The per-unit margins are $920-b_1$ and $920-b_2$. Therefore, for a given assumed average second bid $\bar{b}_2$, the modeled PnL was
 
 $$
-\Pi(b_1,b_2;\bar b_2)
-=Q_1(b_1)(920-b_1)+Q_2(b_1,b_2)(920-b_2)M(b_2,\bar b_2),
+\Pi(b_1,b_2;\bar{b}_2)
+=Q_1(b_1)(920-b_1)+Q_2(b_1,b_2)(920-b_2)M(b_2,\bar{b}_2),
 $$
 
 where
 
 $$
-M(b_2,\bar b_2)=
+M(b_2,\bar{b}_2)=
 \begin{cases}
-1, & b_2\geq \bar b_2,\\
-\left(\dfrac{920-\bar b_2}{920-b_2}\right)^3, & b_2<\bar b_2.
+1, & b_2\geq \bar{b}_2,\\
+\left(\dfrac{920-\bar{b}_2}{920-b_2}\right)^3, & b_2<\bar{b}_2.
 \end{cases}
 $$
 
@@ -250,22 +250,22 @@ We searched over all integer bid pairs $b_1\leq b_2$ and selected the pair with 
 
 #### Nash Equilibrium Assumption
 
-Our starting point was a symmetric-player assumption. Suppose every strategic player has the same information, solves the same expected-PnL problem, and believes the average second bid will be $\bar b_2$. Then each player has a best response
+Our starting point was a symmetric-player assumption. Suppose every strategic player has the same information, solves the same expected-PnL problem, and believes the average second bid will be $\bar{b}_2$. Then each player has a best response
 
 $$
-BR(\bar b_2)=\arg\max_{b_1\leq b_2}\Pi(b_1,b_2;\bar b_2).
+BR(\bar{b}_2)=\arg\max_{b_1\leq b_2}\Pi(b_1,b_2;\bar{b}_2).
 $$
 
 A symmetric Nash equilibrium occurs when the assumed average second bid is consistent with the second bid produced by the best response. If
 
 $$
-BR(\bar b_2)=(b_1^\ast,b_2^\ast),
+BR(\bar{b}_2)=(b_1^\ast,b_2^\ast),
 $$
 
 then a symmetric fixed point requires
 
 $$
-b_2^\ast=\bar b_2.
+b_2^\ast=\bar{b}_2.
 $$
 
 The grid search found several fixed points, but the most profitable one was
@@ -458,7 +458,7 @@ Candidate portfolios were evaluated on both path-level and set-level metrics. Th
 One representative scoring function used in the search was
 
 $$
-\text{score}=\text{mean}+0.05p_{05}+0.01p_{01}-0.10\sigma-0.05\text{CVaR}_{5\%}.
+\operatorname{score}=\operatorname{mean}+0.05p_{05}+0.01p_{01}-0.10\sigma-0.05\operatorname{CVaR}_{0.05}.
 $$
 
 In the final validation run with 10,000 independent 100-path sets, or 1,000,000 paths total, the robust portfolio had the following statistics:
