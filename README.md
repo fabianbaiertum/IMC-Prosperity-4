@@ -214,7 +214,7 @@ $$
 be the set of reserve-price levels, and let $N=300$ be the number of counterparties at each reserve level. For a bid $b$, the number of counterparties with reserve price below the bid is
 
 $$
-Q(b)=N\cdot \left|\{r\in\mathcal{R}:r<b\}\right|.
+Q(b)=N\cdot \left|\left{r\in\mathcal{R}:r<b\right}\right|.
 $$
 
 For two bids, the first bid fills
