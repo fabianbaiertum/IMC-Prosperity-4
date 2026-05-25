@@ -458,7 +458,7 @@ Candidate portfolios were evaluated on both path-level and set-level metrics. Th
 One representative scoring function used in the search was
 
 $$
-\operatorname{score}=\operatorname{mean}+0.05p_{05}+0.01p_{01}-0.10\sigma-0.05\operatorname{CVaR}_{0.05}.
+\text{score}=\text{mean}+0.05p_{05}+0.01p_{01}-0.10\sigma-0.05\text{CVaR}_{0.05}.
 $$
 
 In the final validation run with 10,000 independent 100-path sets, or 1,000,000 paths total, the robust portfolio had the following statistics:
